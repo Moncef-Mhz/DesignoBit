@@ -67,8 +67,8 @@ const Posts = () => {
             onClick={() => setActiveCat(item.title)}
             className={[
               activeCat === item.title
-                ? "border rounded-full bg-black text-white hover:bg-black/80 cursor-pointer hover:border-black/80 duration-150 px-4 py-2 border-black"
-                : "border rounded-full cursor-pointer px-4 py-2 border-black",
+                ? "border rounded-full lg:text-base text-sm bg-black text-white hover:bg-black/80 cursor-pointer hover:border-black/80 duration-150 px-4 py-2 border-black"
+                : "border rounded-full lg:text-base text-sm cursor-pointer px-4 py-2 border-black",
             ]
               .filter(Boolean)
               .join("")}
@@ -87,17 +87,19 @@ const Posts = () => {
             )
             .map((item) => <ArticlesCard key={item._id} item={item} />)}
       </div>
-      <Button
-        variant={"default"}
-        disabled={isLoadingMore || isReachingEnd}
-        onClick={() => setSize(size + 1)}
-      >
-        {isLoadingMore
-          ? "loading..."
-          : isReachingEnd
-          ? "no more posts"
-          : "load more"}
-      </Button>
+      <div className="flex items-center w-full justify-center">
+        <Button
+          variant={"default"}
+          disabled={isLoadingMore || isReachingEnd}
+          onClick={() => setSize(size + 1)}
+        >
+          {isLoadingMore
+            ? "loading..."
+            : isReachingEnd
+            ? "no more posts"
+            : "load more"}
+        </Button>
+      </div>
     </Gutter>
   );
 };

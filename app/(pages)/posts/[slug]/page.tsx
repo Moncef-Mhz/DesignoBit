@@ -50,32 +50,10 @@ const ArticlePage = () => {
   return (
     <>
       {article && (
-        <Gutter className="my-10 lg:my-20 space-y-5">
-          {/* bread crumb */}
-          {/* <Breadcrumb>
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink
-                  href="/posts"
-                  className="text-black/70 no-underline md:text-sm text-xs"
-                >
-                  Posts
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage className="text-xs md:text-sm">
-                  {article.title}
-                </BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb> */}
-
-          {/* breadcrumb end */}
-
+        <Gutter className="my-5 ">
           <div className="flex  flex-col items-center justify-center ">
             <div className="max-w-[935px]  h-full  space-y-5 ">
-              <h1 className="text-3xl md:text-3xl leading-loose lg:text-6xl font-bold  text-center  capitalize">
+              <h1 className="text-3xl md:text-3xl leading-normal lg:text-6xl font-bold  text-center  capitalize">
                 {article.title}
               </h1>
               <p className="text-base text-black/70 text-center">
@@ -93,14 +71,14 @@ const ArticlePage = () => {
               <div className="">
                 <img
                   src={article.image}
-                  className="aspect-video w-full h-full object-cover"
+                  className="aspect-[16/12] lg:aspect-video w-full h-full object-cover"
                   alt={article.title}
                 />
               </div>
               {/* <HR color="black" /> */}
-              <div className="flex p-4 space-y-4  items-center w-full justify-center">
+              <div className="flex px-4 items-center w-full justify-center">
                 <div
-                  className="max-w-[935px]  my-10"
+                  className="max-w-[935px] "
                   dangerouslySetInnerHTML={{ __html: article.content }}
                 />
               </div>

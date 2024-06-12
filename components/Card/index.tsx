@@ -25,13 +25,15 @@ const ArticlesCard: React.FC<ArticleProps> = ({ item }) => {
       <img
         src={item.image}
         alt={item.title}
-        className="rounded aspect-[16/12] object-cover"
+        className="rounded aspect-video w-full object-cover"
       />
-      <div className="p-2">
-        <h3 className="font-bold text-2xl text-black no-underline group-hover:underline duration-75">
+      <div className="px-2 py-4">
+        <h3 className="font-semibold m-0 text-2xl capitalize text-black no-underline group-hover:underline duration-75">
           {item.title}
         </h3>
-        <p className="text-black/70">{item?.description?.substring(0, 100)}</p>
+        <p className="text-black/70 font-normal text-base m-0">
+          {item?.description?.substring(0, 100)}
+        </p>
       </div>
     </Link>
   );

@@ -93,13 +93,13 @@ h4 {
   @apply text-xl;
 }
 p {
-  @apply text-base leading-relaxed;
+  @apply text-lg leading-relaxed;
 }
 ul {
-  @apply list-disc;
+  @apply list-disc text-lg;
 }
 ol {
-  @apply list-decimal;
+  @apply list-decimal text-lg;
 }
 ul,
 ol {
@@ -132,7 +132,7 @@ ol,
 a,
 code,
 pre {
-  margin: 0em 0 0em 0;
+  margin: 1em 0 1em 0;
 }
 p > img {
   width: 935px;
