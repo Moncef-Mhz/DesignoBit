@@ -47,6 +47,58 @@ const DeleteHandler = async (id: string) => {
   return { success: res.ok };
 };
 
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
+const ArticlesPage: React.FC = () => {
+  const { data: articles, isLoading } = useSWR<ArticlesType[]>(
+    "/api/articles",
+    fetcher
+  );
+
+  return (
+    <div className="text-white space-y-5">
+      <div>
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink
+                className="text-white/70 no-underline"
+                href="/admin"
+              >
+                dashboard
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator>
+              <Slash />
+            </BreadcrumbSeparator>
+            <BreadcrumbItem>
+              <BreadcrumbPage className="text-white">Articles</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
+      <div className="flex items-end gap-2">
+        <h1 className="text-5xl font-bold capitalize">Articles</h1>
+        <Button
+          asChild
+          variant="default"
+          size="sm"
+          className="bg-zinc-700 hover:bg-zinc-800 text-xs"
+        >
+          <Link href="/admin/articles/new" className="no-underline">
+            Create new
+          </Link>
+        </Button>
+      </div>
+      {/* Categories Table */}
+      {/* Add loading event */}
+      {articles && (
+        <DataTable columns={columns} data={articles} filterName="title" />
+      )}
+    </div>
+  );
+};
+
 export const columns: ColumnDef<ArticlesType>[] = [
   {
     accessorKey: "title",
@@ -118,57 +170,5 @@ export const columns: ColumnDef<ArticlesType>[] = [
     },
   },
 ];
-
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
-
-const ArticlesPage: React.FC = () => {
-  const { data: articles, isLoading } = useSWR<ArticlesType[]>(
-    "/api/articles",
-    fetcher
-  );
-
-  return (
-    <div className="text-white space-y-5">
-      <div>
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink
-                className="text-white/70 no-underline"
-                href="/admin"
-              >
-                dashboard
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator>
-              <Slash />
-            </BreadcrumbSeparator>
-            <BreadcrumbItem>
-              <BreadcrumbPage className="text-white">Articles</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
-      </div>
-      <div className="flex items-end gap-2">
-        <h1 className="text-5xl font-bold capitalize">Articles</h1>
-        <Button
-          asChild
-          variant="default"
-          size="sm"
-          className="bg-zinc-700 hover:bg-zinc-800 text-xs"
-        >
-          <Link href="/admin/articles/new" className="no-underline">
-            Create new
-          </Link>
-        </Button>
-      </div>
-      {/* Categories Table */}
-      {/* Add loading event */}
-      {articles && (
-        <DataTable columns={columns} data={articles} filterName="title" />
-      )}
-    </div>
-  );
-};
 
 export default ArticlesPage;
