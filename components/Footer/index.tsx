@@ -40,9 +40,9 @@ const Footer = () => {
         </div>
       </div>
       {/* <HR color="white" /> */}
-      <p className="text-center text-xs text-white font-normal">
+      {/* <p className="text-center text-xs text-white font-normal">
         © DesignoBit, All Rights Reserved.
-      </p>
+      </p> */}
     </Gutter>
   );
 };

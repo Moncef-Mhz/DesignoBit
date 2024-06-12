@@ -48,25 +48,25 @@ const RecentPosts = (props: RecentPost) => {
             <div key={item._id} className="w-full border-b-2 ">
               <Link
                 href={`/posts/${item.slug}`}
-                className="flex relative text-black px-2 py-6 no-underline m-0 lg:flex-row items-stretch gap-4  "
+                className="flex relative  w-full text-black px-2 py-6 no-underline m-0 lg:flex-row  gap-4  "
               >
                 <img
                   src={item?.image}
                   alt="post-1"
-                  className="min-h-[150px] max-h-[200px] rounded-md object-cover"
+                  className="h-[200px] w-[200px] rounded-md object-cover"
                 />
-                <div className="flex flex-col items-start justify-between py-2">
+                <div className="flex flex-col  items-start justify-between py-2">
                   <h2 className="lg:text-2xl m-0 md:text-xl text-lg font-bold ">
                     {item.title}
                   </h2>
                   <p className="lg:w-[80%] m-0 md:w-[90%] w-full text-black/80 text-base">
                     {item.description.substring(0, 200)}
                   </p>
-                  <div className="flex flex-row justify-between w-full">
+                  <div className="flex md:gap-44 flex-row justify-between  ">
                     <p>
-                      made by <span className="font-bold">{item.author}</span>{" "}
+                      by <span className="font-bold">{item.author}</span>{" "}
                     </p>
-                    <p>Published: {item.date.substring(0, 10)}</p>
+                    <p>on {item.date.substring(0, 10)}</p>
                   </div>
                 </div>
               </Link>

@@ -79,7 +79,7 @@ const Posts = () => {
       </div>
 
       {/* Articles section */}
-      <div className="grid md:grid-cols-3 gap-5 grid-cols-1 ">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5 grid-cols-1 ">
         {articles &&
           articles
             .filter((item) =>
